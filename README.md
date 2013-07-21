@@ -1,6 +1,6 @@
 ## play-audio
 
-HTML5 Audio Player
+Lightweight Wrapper For HTML5 Audio API
 
 ```js
 play = require('play-audio')
