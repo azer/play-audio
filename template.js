@@ -1,0 +1,1 @@
+module.exports = "<audio src=\"{uri}\" preload=\"auto\" />";
