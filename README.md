@@ -10,7 +10,8 @@ play('song.mp3').autoplay().volume(0.3).controls().loop().on('ended', function()
 })
 ```
 
-Example: [Music player](http://requirebin.com/?gist=6049983)
+* Example 1: [Playing An Alert Sound](http://requirebin.com/?gist=6050020)
+* Example 2: [Music player](http://requirebin.com/?gist=6049983)
 
 ## Install
 
