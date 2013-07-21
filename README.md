@@ -10,6 +10,8 @@ play('song.mp3').autoplay().volume(0.3).controls().loop().on('ended', function()
 })
 ```
 
+Example: [Music player](http://requirebin.com/?gist=6049983)
+
 ## Install
 
 ```bash
