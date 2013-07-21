@@ -25,6 +25,23 @@ it('shows controls and observes time', function(done){
     });
 });
 
+it('gets and sets src attr', function(done){
+
+  var p = play('http://i.cloudup.com/vTka9yOizT.m4a').autoplay();
+
+  p.on('play', function(){
+    expect(p.src()).to.equal('http://i.cloudup.com/0CAiJMT4LK.mp3');
+    p.remove();
+    done();
+  });
+
+  setTimeout(function(){
+    expect(p.src()).to.equal('http://i.cloudup.com/vTka9yOizT.m4a');
+    p.src('http://i.cloudup.com/0CAiJMT4LK.mp3');
+  }, 0);
+
+});
+
 it('removes the element', function(){
   var p = play('http://i.cloudup.com/vTka9yOizT.m4a');
 
