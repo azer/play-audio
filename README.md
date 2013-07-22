@@ -23,6 +23,13 @@ $ npm install play-audio
 play(['song.mp3', 'song.ogg']).autoplay()
 ```
 
+## Displaying Controls
+
+```js
+parent = document.querySelector('.my-player')
+play(['song.mp3', 'song.ogg'], parent).autoplay.controls()
+```
+
 ## API
 
 Example:
