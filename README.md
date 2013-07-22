@@ -17,6 +17,12 @@ play('song.mp3').autoplay()
 $ npm install play-audio
 ```
 
+## Browser Compatibility
+
+```js
+play(['song.mp3', 'song.ogg']).autoplay()
+```
+
 ## API
 
 Example:
