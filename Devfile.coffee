@@ -7,4 +7,4 @@ target 'lib/templates.js', 'templates', ->
   jsify 'templates/* -o lib/templates.js'
 
 task 'test', 'lib', '*.js', ->
-  fox '-b'
+  fox '-b -t 15000'
