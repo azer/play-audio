@@ -8,12 +8,12 @@
   },
   "dependencies": {
     "new-chain": "*",
-    "domify": "~1.0.0",
-    "new-format": "0.0.1"
+    "domify": "~1.0.0"
   },
   "devDependencies": {
     "fox": "*",
-    "jsify": "*"
+    "jsify": "*",
+    "one": "*"
   },
   "keywords": [
     "sound",
