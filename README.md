@@ -10,7 +10,7 @@ play('song.mp3').autoplay()
 
 * Example 1: [Playing An Alert Sound](http://requirebin.com/?gist=6050020)
 * Example 2: [Music player](http://requirebin.com/?gist=6049983)
-* Example 3: [alert library](github.com/azer/alert)
+* Example 3: [alert library](http://github.com/azer/alert)
 
 ## Install
 
