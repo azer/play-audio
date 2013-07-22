@@ -1,6 +1,6 @@
 {
   "name": "play-audio",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "HTML5 Audio Player",
   "main": "index.js",
   "scripts": {
