@@ -30,6 +30,23 @@ parent = document.querySelector('.my-player')
 play(['song.mp3', 'song.ogg'], parent).autoplay.controls()
 ```
 
+## How to use without NPM?
+
+If your application isn't structured as a CommonJS package, you can download the distribution file;
+
+```bash
+$ wget https://raw.github.com/azer/play-audio/master/dist/play-audio.js
+```
+
+And include it on your page:
+
+```html
+<script src="play-audio.js"></script>
+<script>
+  playAudio(['song.mp3', 'song.ogg'])
+</script>
+```
+
 ## API
 
 Example:
