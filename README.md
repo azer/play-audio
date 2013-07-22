@@ -5,9 +5,7 @@ Lightweight Wrapper For HTML5 Audio API
 ```js
 play = require('play-audio')
 
-play('song.mp3').autoplay().volume(0.3).controls().loop().on('ended', function(){
-  console.log('End of the song reached')
-})
+play('song.mp3').autoplay()
 ```
 
 * Example 1: [Playing An Alert Sound](http://requirebin.com/?gist=6050020)
@@ -20,6 +18,16 @@ $ npm install play-audio
 ```
 
 ## API
+
+Example:
+
+```js
+play('foo.mp3').volume(0.3).controls().loop().on('ended', function(){
+  console.log('End of the song reached')
+})
+```
+
+Reference:
 
 * play(uri, parentElement)
 * .controls
