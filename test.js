@@ -1,11 +1,14 @@
 var play = require("./");
 
+  var set1 = ['http://i.cloudup.com/vTka9yOizT.m4a', 'http://i.cloudup.com/4TnDj0v9GE.ogg'],
+      set2 = ['http://i.cloudup.com/pwSS7RG3Sp.ogg', 'http://tayfabandista.org/player/maya.mp3'];
+
 it('plays pop', function(done){
   play('http://i.cloudup.com/4TnDj0v9GE.ogg').autoplay().on('ended', done);
 });
 
 it('initializes multiple sources', function(done){
-  play(['http://i.cloudup.com/vTka9yOizT.m4a', 'http://i.cloudup.com/4TnDj0v9GE.ogg']).autoplay().on('ended', done);
+  play(set1).autoplay().on('ended', done);
 });
 
 it('plays a song and pauses', function(done){
@@ -16,7 +19,7 @@ it('plays a song and pauses', function(done){
 });
 
 it('shows controls and observes time', function(done){
-  var p = play(['http://tayfabandista.org/player/maya.mp3', 'http://i.cloudup.com/pwSS7RG3Sp.ogg']);
+  var p = play(set2);
 
   p.play()
     .controls()
@@ -34,23 +37,26 @@ it('shows controls and observes time', function(done){
 
 it('gets and sets src attr', function(done){
 
-  var p = play(['http://i.cloudup.com/vTka9yOizT.m4a', 'http://i.cloudup.com/4TnDj0v9GE.ogg']).autoplay();
+  var p = play(set1).autoplay();
 
   p.on('play', function(){
-    expect(p.src()).to.deep.equal(['http://i.cloudup.com/pwSS7RG3Sp.ogg', 'http://tayfabandista.org/player/maya.mp3']);
+    expect(p.src()).to.deep.equal(set2);
+    var sources = p.element().querySelectorAll('source');
+    expect(sources[0].src).to.equal(set2[0]);
+    expect(sources[1].src).to.equal(set2[1]);
     p.remove();
     done();
   });
 
   setTimeout(function(){
-    expect(p.src()).to.deep.equal(['http://i.cloudup.com/vTka9yOizT.m4a', 'http://i.cloudup.com/4TnDj0v9GE.ogg']);
-    p.src(['http://i.cloudup.com/pwSS7RG3Sp.ogg', 'http://tayfabandista.org/player/maya.mp3']);
+    expect(p.src()).to.deep.equal(set1);
+    p.src(set2);
   }, 0);
 
 });
 
 it('removes the element', function(){
-  var p = play('http://i.cloudup.com/vTka9yOizT.m4a');
+  var p = play();
 
   p.element().setAttribute('id', 'to-remove');
 
