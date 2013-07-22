@@ -1,10 +1,10 @@
 fox = bin 'fox'
 jsify = bin "jsify"
 
-all 'template.js', 'test'
+all 'lib/templates.js', 'test'
 
-target 'template.js', 'template.html', ->
-  jsify 'template.html -o template.js'
+target 'lib/templates.js', 'templates', ->
+  jsify 'templates/* -o lib/templates.js'
 
-task 'test', '*.js', ->
+task 'test', 'lib', '*.js', ->
   fox '-b'

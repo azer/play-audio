@@ -1,25 +1,32 @@
 var play = require("./");
 
 it('plays pop', function(done){
-  play('http://i.cloudup.com/vTka9yOizT.m4a').autoplay().on('ended', done);
+  play('http://i.cloudup.com/4TnDj0v9GE.ogg').autoplay().on('ended', done);
+});
+
+it('initializes multiple sources', function(done){
+  play(['http://i.cloudup.com/vTka9yOizT.m4a', 'http://i.cloudup.com/4TnDj0v9GE.ogg']).autoplay().on('ended', done);
 });
 
 it('plays a song and pauses', function(done){
-  var p = play('http://tayfabandista.org/player/maya.mp3')
+  var p = play('http://i.cloudup.com/pwSS7RG3Sp.ogg')
         .autoplay().volume(0.3).on('pause', done);
 
   setTimeout(p.pause, 1000);
 });
 
 it('shows controls and observes time', function(done){
-  var p = play('http://tayfabandista.org/player/maya.mp3');
+  var p = play(['http://tayfabandista.org/player/maya.mp3', 'http://i.cloudup.com/pwSS7RG3Sp.ogg']);
 
   p.play()
     .controls()
     .volume(0.3)
-    .on('pause', done)
+    .on('pause', function(){
+      p.remove();
+      done();
+    })
     .on('timeupdate', function(event){
-      if ( p.currentTime() >= 1.5) {
+      if ( p.currentTime() >= 1) {
         p.pause();
       }
     });
@@ -27,17 +34,17 @@ it('shows controls and observes time', function(done){
 
 it('gets and sets src attr', function(done){
 
-  var p = play('http://i.cloudup.com/vTka9yOizT.m4a').autoplay();
+  var p = play(['http://i.cloudup.com/vTka9yOizT.m4a', 'http://i.cloudup.com/4TnDj0v9GE.ogg']).autoplay();
 
   p.on('play', function(){
-    expect(p.src()).to.equal('http://i.cloudup.com/0CAiJMT4LK.mp3');
+    expect(p.src()).to.deep.equal(['http://i.cloudup.com/pwSS7RG3Sp.ogg', 'http://tayfabandista.org/player/maya.mp3']);
     p.remove();
     done();
   });
 
   setTimeout(function(){
-    expect(p.src()).to.equal('http://i.cloudup.com/vTka9yOizT.m4a');
-    p.src('http://i.cloudup.com/0CAiJMT4LK.mp3');
+    expect(p.src()).to.deep.equal(['http://i.cloudup.com/vTka9yOizT.m4a', 'http://i.cloudup.com/4TnDj0v9GE.ogg']);
+    p.src(['http://i.cloudup.com/pwSS7RG3Sp.ogg', 'http://tayfabandista.org/player/maya.mp3']);
   }, 0);
 
 });
