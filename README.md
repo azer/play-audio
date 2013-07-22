@@ -10,6 +10,7 @@ play('song.mp3').autoplay()
 
 * Example 1: [Playing An Alert Sound](http://requirebin.com/?gist=6050020)
 * Example 2: [Music player](http://requirebin.com/?gist=6049983)
+* Example 3: [alert library](github.com/azer/alert)
 
 ## Install
 
@@ -20,7 +21,7 @@ $ npm install play-audio
 ## Browser Compatibility
 
 ```js
-play(['song.mp3', 'song.ogg']).autoplay()
+play(['song.mp3', 'song.ogg']).play()
 ```
 
 ## Displaying Controls
@@ -45,6 +46,18 @@ And include it on your page:
 <script>
   playAudio(['song.mp3', 'song.ogg'])
 </script>
+```
+
+## Changing Source After Initialization
+
+```js
+p = play(['song.mp3', 'song.ogg']).autoplay()
+p.src()
+// => ['song.mp3', 'song.ogg']
+
+p.src(['new.mp3', 'new.ogg']).play()
+p.src()
+// => ['new.mp3', 'new.ogg']
 ```
 
 ## API
