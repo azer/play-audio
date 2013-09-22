@@ -97,5 +97,3 @@ Reference:
 * timeupdate
 
 [See complete reference](http://www.w3.org/html/wg/drafts/html/master/embedded-content-0.html#mediaevents)
-
-![](https://dsz91cxz97a03.cloudfront.net/zebVeRnfaa-1200x1200.jpeg)
