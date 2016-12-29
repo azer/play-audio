@@ -7,7 +7,7 @@
     "test": "fox"
   },
   "dependencies": {
-    "new-chain": "*",
+    "new-chain": "azer/new-chain",
     "domify": "~1.0.0"
   },
   "devDependencies": {
